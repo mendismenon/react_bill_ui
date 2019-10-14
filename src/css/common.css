@@ -1,0 +1,43 @@
+.menuContents
+{
+	left: -45%;
+    position: relative;
+    margin-top: 4.5% !important;
+    display: inline-block;
+    float: left;
+    left: 0px;
+}
+.setngMenuContents
+{
+    left: -45%;
+    position: relative;
+    display: inline-block;
+    float: left;
+    left: 0px; 
+    margin-top: 0.5% !important;
+}
+.headrTextCls
+{
+	text-align: left;
+    width: 50%;
+    display: inline-block;
+}
+.logoutBtnCls
+{
+	float: right;
+}
+.headerDivCls
+{
+	top: 0;
+    width: 100%;
+    z-index: 9999999;
+    position: fixed;
+}
+.chartparentCls
+{
+	display: inline;
+    float: left;
+    margin-top: 5%;	
+    border : 1px solid lightgrey;
+    margin-left: 1%;
+}
