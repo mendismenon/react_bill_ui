@@ -54,7 +54,7 @@ class MenuComponent extends Component {
 	 			icon:"sync icon"
 	 		}
 	 	],"currMenuSel":""}
-	 	console.log("Props in constructor :: "+JSON.stringify(props));
+	 	console.log("Props in menu constructor :: "+JSON.stringify(props));
 	 }
 	 componentWillMount()
 	 {
@@ -78,11 +78,15 @@ class MenuComponent extends Component {
 	 	gflag = true;
 	 	if(pdata.name === "Dashboard")
 	 	{
-	 		this.setState({"currMenuSel":"/DashboardComponents"});
+	 		this.setState({"currMenuSel":"/Dashboard"});
 	 	}
 	 	else if(pdata.name === "Setting")
 	 	{
-	 		this.setState({"currMenuSel":"/SettingComponents"});
+	 		this.setState({"currMenuSel":"/Setting"});
+	 	}
+	 	else if(pdata.name === "Customers")
+	 	{
+	 		this.setState({"currMenuSel":"/Customers"});
 	 	}
 	 }
 	 render () {

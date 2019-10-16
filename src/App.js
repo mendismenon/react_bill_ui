@@ -4,9 +4,11 @@ import ReactDOM from 'react-dom';
 import LoginComponent from './components/LoginComponent';
 import DashboardComponents from './components/DashboardComponents/LandingComponent';
 import SettingComponents from './components/SettingComponents/SettingComponent';
+import CustomersComponent from './components/CustomersComponents/CustomersComponent';
+
 import {
   BrowserRouter as Router,
-  Route
+  Route  
 } from 'react-router-dom';
 import './App.css';
 
@@ -17,8 +19,9 @@ class App extends Component {
      <Router>
         <div className="App">
           <Route exact path="/" component={LoginComponent} />
-          <Route exact path="/DashboardComponents" component={DashboardComponents} />
-          <Route exact path="/SettingComponents" component={SettingComponents} />
+          <Route exact path="/Dashboard" component={DashboardComponents} />
+          <Route exact path="/Setting" component={SettingComponents} />
+          <Route exact path="/Customers" component={CustomersComponent} />
         </div>
       </Router>
     );

@@ -41,3 +41,49 @@
     border : 1px solid lightgrey;
     margin-left: 1%;
 }
+.curPoint
+{
+    cursor: pointer;
+    color: green;
+}
+.searchCustCls_CustCmp
+{
+    border: 1px solid lightgray;
+    background: lightgray;
+    border-radius: 10px;
+    padding: 0.5%;
+    width: 100%;
+}
+.searchCustCls_CustCmp_Parent
+{
+    position: absolute;
+    margin-top: 6%;
+    margin-left: 12%;
+    width: 86%;
+    padding: 0.5%;
+    border: 1px solid lightgray;
+    margin-bottom: 2%;
+    background-color: white;
+}
+.ui.header>.icon
+{
+    font-size: 0.7em;
+}
+.ui.header > .icon + .content
+{
+    font-size: 1.41429rem !important;
+}
+.searchCustCls_CustCmp_Parent  .ui.action.input , .searchCustCls_CustCmp_Parent  .ui.icon
+{
+    float:left;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+.martop20Per
+{
+    margin-top: 20%;
+}
+.dataTables_wrapper
+{
+    margin-top: 2%;
+}

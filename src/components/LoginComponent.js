@@ -75,7 +75,7 @@ class LoginComponent extends Component {
   	if(this.state.loginState)
     	{
     		return <Redirect to={{
-	            pathname: '/DashboardComponents',
+	            pathname: '/Dashboard',
 	            state: { id: '123' }
        		}} />
     	}
