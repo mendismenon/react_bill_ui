@@ -87,3 +87,51 @@
 {
     margin-top: 2%;
 }
+.wid1per
+{
+    width: 1%;
+}
+.iptTableCls 
+{
+    display: block !important;
+}
+.selectAllCustTable
+{
+    background-image: none !important;
+}
+.custmer_CustmBtn_Prnt_Div
+{
+    float: left;
+    margin-left: 12%;
+    margin-bottom: auto;
+    position: inherit;
+    width: 86%;
+    padding: 0.5%;
+    border: 1px solid lightgray;
+    margin-bottom: 2%;
+    background-color: white;
+}
+.custmer_CustmBtn_Prnt_Div  .ui.action.input , .custmer_CustmBtn_Prnt_Div  .ui.icon
+{
+    float:left;
+    margin-top: 2%;
+    margin-right: 2%;
+}
+.fltLft
+{
+    float: left;
+}
+.ui.page.modals.dimmer.transition.visible.active > .ui .header > .close
+{
+    color: red;
+    font-size: 20px;
+}
+.InfoErrCmpBtn  > .icon
+{
+    font-size: 0.5px;
+    width: 0px;
+}
+.InfoErrCmpBtn
+{
+    padding-right: 3% !important;
+}

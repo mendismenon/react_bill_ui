@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Context } from '../CommonComponents/ContextProvider';
 import '../../css/LandingComponent.css';
 
 
@@ -8,19 +9,34 @@ class RegisterComponent extends Component {
 	 	this.state = {"testdata" : "testData"}
 	 	console.log("Props in constructor :: "+JSON.stringify(props));
 	 }
-	 submitReg = (e) =>
+	  submitReg = (e,pcontext) =>
 	 {
 	 	e.preventDefault();
+      console.log("In reg submit :: "+pcontext);
+      pcontext.g_objDtls.registerUser = true;
+      pcontext.onChangeGlobalState(pcontext.g_objDtls);
 	 	this.props.onSubmitRegister({"Registration":true});
 	 }
 	 componentDidMount() {
 	 	console.log('in did mount');
-	 	window.jQuery('.ui.modal').modal('show');
-	 	window.jQuery('.chkBxShw').attr('style','opacity:1 !important');
+      console.log("Inside Reg did mount :: "+JSON.stringify(this.context));
+      let lcurrGObj = this.context;
+      debugger;
+      if(lcurrGObj)
+      {
+         if(lcurrGObj.g_objDtls.registerUser === false)
+         {
+	 	      window.jQuery('.ui.modal').modal('show');
+	 	      window.jQuery('.chkBxShw').attr('style','opacity:1 !important');
+         }
+      }
 	 }
 
 	 render () {
 	 	return (
+         <React.Fragment>
+         <Context.Consumer>
+            {(context) =>
       <div>
    <div className="ui modal">
       <div className="header">Registration Details</div>
@@ -102,12 +118,15 @@ class RegisterComponent extends Component {
                   <label id="TermsCondLbl" className="TermsCondLblCls">I agree to the Terms and Conditions</label>
                </div>
             </div>
-           <button className="ui green basic button" onClick={this.submitReg}>Submit</button>
+           <button className="ui green basic button" onClick={(e) => this.submitReg(e,context)}>Submit</button>
          </form>
       </div>
    </div>
-</div>
+</div>}
+</Context.Consumer>
+</React.Fragment>
     );
 	 }
 	}
+   RegisterComponent.contextType = Context;
 	export default RegisterComponent

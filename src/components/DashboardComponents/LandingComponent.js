@@ -7,6 +7,7 @@ import MenuComponent from '../CommonComponents/MenuComponent';
 import HeaderComponent from '../CommonComponents/HeaderComponent';
 import ChartComponent from '../CommonComponents/ChartComponent';
 import TableComponent from '../CommonComponents/TableComponent';
+import { Context } from '../CommonComponents/ContextProvider';
 //import $ from 'jquery'; 
 //import jQuery from 'jquery'; //<-to import jqueryd
 import 'bootstrap';
@@ -15,7 +16,7 @@ import 'bootstrap';
 class LandingComponent extends Component {
 	 constructor(props) {
 	 	super(props);
-	 	this.state = {"testdata" : "testData","RegisterComponent":true,invoiceCountChrt:{},invoiceCountChrtLd:"Not Loaded",
+	 	this.state = {g_gobj:{},"testdata" : "testData","RegisterComponent":true,invoiceCountChrt:{},invoiceCountChrtLd:"Not Loaded",
 	 		amountCountChart:"",summaryDtls:{},tableprops:{},"menuDetails":{"parentClass":"ui compact vertical labeled icon menu menuContents"}}
 	 	console.log("Props in constructor :: "+JSON.stringify(props));
 	 }
@@ -160,10 +161,12 @@ class LandingComponent extends Component {
         lamnrChrtChartDtls.chartParentDivCls = "chartparentCls";
         return lamnrChrtChartDtls;
 	 }
-	 componentDidMount()
+	 componentWillMount()
 	 {
+
 	 	console.log('StateObj b4 :: '+JSON.stringify(this.state));
-	 	if(!this.state.RegisterComponent)
+	 	let g_State = this.context;
+	 	if(g_State && g_State.g_objDtls.registerUser)
  		{
  			if(this.state.invoiceCountChrtLd === "Not Loaded")
  			{
@@ -179,7 +182,9 @@ class LandingComponent extends Component {
 		}
 	 }*/
 	 render () {
-	 	if(this.state.RegisterComponent)
+	 	console.log("inside render LP :: "+JSON.stringify(this.context));
+	 	let g_State = this.context;
+	 	if(g_State.g_objDtls.registerUser === false)
  		{
  			return (
   				<RegisterComponent onSubmitRegister={this.submitRegisterFn}/>
@@ -205,4 +210,5 @@ class LandingComponent extends Component {
 	 	}
 	}
 }
+LandingComponent.contextType = Context;
 export default LandingComponent

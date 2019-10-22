@@ -2,15 +2,26 @@ import React, { Component } from 'react';
 import '../css/LoginComponent.css';
 import SignUpComponent from './SignUpComponent';
 import ForgotPassComponent from './ForgotPassComponent';
+import { Context } from './CommonComponents/ContextProvider';
 import { Redirect } from 'react-router';
 
 //let LoginComponent = () => {
+	let g_glbObj = {};
 class LoginComponent extends Component {
+	
 	 constructor(props) {
 	    super(props);
 	    this.state = {loadSignUp: 'NotLoad', signInAct: "btn active", signUpAct: "btn", 
 	    	signInFrmCls: "form-signin", signUpFrmCls: "form-signup",forgtPassAct: "btn",
 	    	frgtPassFrmCls: "form-forgtPass",loadFrgtPass: "NotLoad", frameClass: "frame",loginState: false};
+	 }
+	 componentDidMount()
+	 {
+	 	console.log("Inside DID mount :: "+JSON.stringify(this.context));
+	 	if(this.context)
+	 	{
+	 		g_glbObj = this.context;
+	 	}
 	 }
 	 renderSignUp = () => {
 	   if(this.state.loadSignUp === "Loading" ||this.state.loadSignUp === "Loaded")
@@ -69,15 +80,28 @@ class LoginComponent extends Component {
 	}
 	signInFntcn = () => {
 		console.log('in sign in');
+		g_glbObj.g_objDtls.loginStatus = true;
+		//g_glbObj.g_objDtls.registerUser = false;
+		g_glbObj.onChangeGlobalState(g_glbObj.g_objDtls);
 		this.setState({loginState: true});
 	}
   render() {
   	if(this.state.loginState)
     	{
-    		return <Redirect to={{
+    		/*<Context.Consumer>
+            {(context) =>
+            	{
+            		let lobj = context.g_objDtls;
+            		lobj.loginStatus = true;
+            		context.onChangeGlobalState(lobj);
+            	}
+        	}
+        	</Context.Consumer>*/
+        	return <Redirect to={{
 	            pathname: '/Dashboard',
 	            state: { id: '123' }
        		}} />
+        	
     	}
     	else {
     return (
@@ -132,4 +156,5 @@ class LoginComponent extends Component {
  } 
 
 }
+LoginComponent.contextType = Context;
 export default LoginComponent;
