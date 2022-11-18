@@ -22,7 +22,7 @@
   "devDependencies": {
     "datatables.net": "^1.10.20",
     "jquery": "^3.4.1",
-    "loader-utils": "^1.0.4"
+    "loader-utils": "^1.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
